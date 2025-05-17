@@ -1,29 +1,29 @@
 class Theboard {
   List<List<String>> board = [
-    ['1', '2', '3'],
-    ['4', '5', '6'],
-    ['7', '8', '9'],
+    ["1", "2", "3"],
+    ["4", "5", "6"],
+    ["7", "8", "9"],
   ];
 
   //Print panel function
   void printBoard() {
-    print(' ${board[0]} | ${board[1]} | ${board[2]} ');
-    print('---|---|---');
-    print(' ${board[3]} | ${board[4]} | ${board[5]} ');
-    print('---|---|---');
-    print(' ${board[6]} | ${board[7]} | ${board[8]} ');
+    print(" ${board[0][0]} | ${board[0][1]} | ${board[0][2]} ");
+    print("---|---|---");
+    print(" ${board[1][0]} | ${board[1][1]} | ${board[1][2]} ");
+    print("---|---|---");
+    print(" ${board[2][0]} | ${board[2][1]} | ${board[2][2]} ");
   }
 
   //Receive number function
   bool placeSymbol(int number, String symbol) {
-    if (number < 1 || number > 9) {
+    if (number < 1 || number > 9 || number == null) {
       print("Invalid entry. Enter a number from 1 to 9.");
       return false;
     }
     int row = (number - 1) ~/ 3;
     int col = (number - 1) % 3;
 
-    if (board[row][col] == 'X' || board[row][col] == 'O') {
+    if (board[row][col] == "X" || board[row][col] == "O") {
       print("Cell already taken. Try again");
       return false;
     }
@@ -60,7 +60,7 @@ class Theboard {
   bool checkDraw() {
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
-        if (board[i][j] != 'X' && board[i][j] != 'O') {
+        if (board[i][j] != "X" && board[i][j] != "O") {
           return false;
         }
       }
@@ -71,9 +71,9 @@ class Theboard {
   //Game reset function
   void resetBoard() {
     board = [
-      ['1', '2', '3'],
-      ['4', '5', '6'],
-      ['7', '8', '9'],
+      ["1", "2", "3"],
+      ["4", "5", "6"],
+      ["7", "8", "9"],
     ];
   }
 }
